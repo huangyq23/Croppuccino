@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title></title>
+<link rel="stylesheet" type="text/css" href="../source/croppuccino.css"/>
+<style>
+body{
+	background-color: #75d6fc;
+	margin: 0;
+	padding: 0;
+}
+#cp_container{
+	float: left;
+	margin: 10px;
+}
+#previews_container{
+	float: left;
+	margin: 10px;
+}
+</style>
+<script type="text/javascript" src="mootools.js"></script>
+<script type="text/javascript" src="mootools-more.js"></script>
+<script type="text/javascript" src="../source/Croppuccino.js"></script>
+<script type="text/javascript">
+var boot=function(){
+    myCropper=new Croppuccino({
+        container: 'cp_container',
+        img_src: 'test.jpg',
+        minSize: 100,
+        preview: ['preview_big', 'preview_medium', 'preview_small']
+    });
+}
+var showImage = function(){
+    var obj=myCropper.getCropConstraints();
+    var query=Object.toQueryString(obj);
+    var image = new Element('img', {
+        src: "crop.php?"+query
+    }).inject(document.body);
+}
+window.addEvent('domready', boot);
+</script>
+</head>
+<body>
+<div id="cp_container"></div>
+<div id="previews_container">
+    <div class="previewContainer" id="preview_big" style="width:100px; height:100px"></div>
+    <div class="previewContainer" id="preview_medium" style="width:50px; height:50px"></div>
+    <div class="previewContainer" id="preview_small" style="width:32px; height:32px"></div>
+</div>
+</body>
+</html>
