@@ -20,13 +20,14 @@ requires:
 ...
 */
 var Croppuccino = new Class({
-    version: '0.3',
+    version: '0.4',
     Implements: [Options, Events],
     options: {
         preview: false,
         minSize: 100/*,
         onStartLoad: $empty,
-        onLoad: $empty
+        onLoad: $empty,
+        onError: $empty
         */
     },
     initialize: function(options){
@@ -57,7 +58,8 @@ var Croppuccino = new Class({
                 'visibility': 'hidden'
             },
             events: {
-                'load': this.setUpAll.bind(this)
+                'load': this.setUpAll.bind(this),
+                'error': this.fireEvent.pass('error', this)
             }
         }).inject(this.container);
         this.fireEvent('startLoad');

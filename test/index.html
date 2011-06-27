@@ -26,7 +26,7 @@ body{
 var boot=function(){
     myCropper=new Croppuccino({
         container: 'cp_container',
-        img_src: 'test.jpg',
+        img_src: 'texst.jpg',
         minSize: 100,
         preview: ['preview_big', 'preview_medium', 'preview_small'],
 
@@ -35,6 +35,9 @@ var boot=function(){
         },
         onLoad: function(){
             alert('Croppuccino Load Complete');
+        },
+        onError: function(){
+            alert('Croppuccino Load Error');
         }
     });
 }
