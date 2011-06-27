@@ -21,14 +21,21 @@ body{
 </style>
 <script type="text/javascript" src="mootools.js"></script>
 <script type="text/javascript" src="mootools-more.js"></script>
-<script type="text/javascript" src="../source/Croppuccino.js"></script>
+<script type="text/javascript" src="../source/croppuccino.js"></script>
 <script type="text/javascript">
 var boot=function(){
     myCropper=new Croppuccino({
         container: 'cp_container',
         img_src: 'test.jpg',
         minSize: 100,
-        preview: ['preview_big', 'preview_medium', 'preview_small']
+        preview: ['preview_big', 'preview_medium', 'preview_small'],
+
+        onStartLoad: function(){
+            alert('Load Started');
+        },
+        onLoad: function(){
+            alert('Croppuccino Load Complete');
+        }
     });
 }
 var showImage = function(){

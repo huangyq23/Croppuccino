@@ -20,11 +20,14 @@ requires:
 ...
 */
 var Croppuccino = new Class({
-    version: '0.2',
-    Implements: [Options],
+    version: '0.3',
+    Implements: [Options, Events],
     options: {
         preview: false,
-        minSize: 100
+        minSize: 100/*,
+        onStartLoad: $empty,
+        onLoad: $empty
+        */
     },
     initialize: function(options){
         this.setOptions(options);
@@ -57,6 +60,7 @@ var Croppuccino = new Class({
                 'load': this.setUpAll.bind(this)
             }
         }).inject(this.container);
+        this.fireEvent('startLoad');
     },
     setUpDrag: function(){
         var myDrager = new Drag(this.imageArea, {
@@ -131,7 +135,7 @@ var Croppuccino = new Class({
             this.setUpPreview();
         }
         this.render(this.innerRange);
-        
+        this.fireEvent('load');
     },
     render: function(value){
         if(value<this.innerRange){
