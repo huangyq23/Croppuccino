@@ -109,9 +109,8 @@ var Croppuccino = new Class({
         
     },
     setUpAll: function(){
-        var tempSize=this.image.getSize();
-        this.imageWidth=tempSize.x;
-        this.imageHeight=tempSize.y;
+        this.imageWidth=this.image.width;
+        this.imageHeight=this.image.height;
         this.maxEdge=Math.max(this.imageWidth, this.imageHeight);
         this.minEdge=Math.min(this.imageWidth, this.imageHeight);
         if(this.maxEdge<=this.options.minSize){
