@@ -2,9 +2,17 @@
 	overflow: hidden;
 	position: relative;
 	display: inline-block;
+    border-style: none;
+    border-width: 1px;
+    -moz-box-shadow: 0 0 5px #7b7b7b;
+    -webkit-box-shadow: 0 0 5px #7b7b7b;
+    box-shadow: 0 0 5px #7b7b7b;
 }
 .cp_image_cropper {
 	overflow: hidden;
+	-moz-box-shadow: 0 0 5px #7b7b7b;
+	-webkit-box-shadow: 0 0 5px #7b7b7b;
+	box-shadow: 0 0 5px #7b7b7b;
 }
 .cp_image_area {
 	width: 300px;
